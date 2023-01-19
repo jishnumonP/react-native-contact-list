@@ -8,7 +8,9 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import React, { useState } from "react";
+import UserCard from "./src/UserCard";
 export default function App() {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
@@ -31,14 +33,23 @@ export default function App() {
   };
   return (
     <View style={styles.container}>
+   
       <ScrollView>
         <View style={styles.screenHeader}>
+
 
     <Image source={{uri:'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fgetdrawings.com%2Fvectors%2Fback-arrow-vector-5.png&f=1&nofb=1&ipt=e865f5af3814d7b1c43050b15e9b6b33c8fe925e557bba384280b5ca4d0a569c&ipo=images'}}   style={{width: 40, height: 40}} />
 
          <Text style={styles.screenHeaderText}>ADD DETAILS</Text>
+    
+         <FontAwesome5
+              name='trash'
+              color={'#41AADE'}
+              size={25}
+              />
         </View>
         <View>
+      
           <TextInput
             style={styles.input}
             placeholder="Enter name"
@@ -61,15 +72,7 @@ export default function App() {
             <Text style={styles.buttonText}>Save</Text>
           </TouchableOpacity>
         </View>
-        {taskArray.map((item, index) => {
-          return (
-            <View style={styles.userCard} key={index}>
-              <Text style={styles.userCardText}>{index + 1}</Text>
-              <Text style={styles.userCardText}>{item.name}</Text>
-              <Text style={styles.userCardText}>{item.number}</Text>
-            </View>
-          );
-        })}
+       <UserCard taskArray={taskArray}/>
       </ScrollView>
     </View>
   );
@@ -116,19 +119,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "800",
   },
-  userCard: {
-    width: 120 * 3,
-    height: 55,
-    backgroundColor: "#0E9EC2",
-    borderRadius: 10,
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-    alignItems: "center",
-    marginLeft: 20,
-    marginTop: 8,
-  },
-  userCardText: {
-    color: "#ffffff",
-    fontSize: 16,
-  },
+ 
 });

@@ -12,6 +12,7 @@
   "dependencies": {
     "react": "18.2.0",
     "react-native": "0.71.0",
+    "react-native-elements": "^3.4.3",
     "react-native-vector-icons": "^9.2.0"
   },
   "devDependencies": {
